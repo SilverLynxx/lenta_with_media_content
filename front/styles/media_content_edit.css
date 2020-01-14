@@ -1,0 +1,205 @@
+/*      <div className="media-content-edit">
+      <div className="media-content-edit__toggle">
+        <button
+          onClick={(e) => handleToggle(e)}></button>
+      </div>
+      { 
+        toggle
+        ?<div className="media-content-edit__add-media">
+          <div className="media-content-edit__select-media-type">
+            { mediaTypeList.map(
+                mediaType => 
+                  <button 
+                    className={`${(currentMediaType == mediaType)?'selected':''}`}
+                    onClick={(e) => handleChangeMediaType(e, mediaType)}>
+                    { mediaTypeDict[mediaType] }
+                  </button>) }
+          </div>
+          {
+            (() => {
+              switch (currentMediaType) {
+                case 'embedded_video': {
+                  return (
+                    <div className="media-content-edit__input-data">
+                      <div className="media-content-edit__input-embedded-video-url">
+                        <button
+                          className="media-content-edit__input-data-close"
+                          onClick={(e) => handleToggle(e)}></button>
+                        <input
+                          value={embeddedVideoUrl}
+                          onChange={(e) => handleChangeEmbeddedVideoUrl(e)}
+                          placeholder="Embedded video url" />
+                      </div>
+                      <div className="media-content-edit__input-description">
+                        <textarea
+                          value={description}
+                          onChange={(e) => handleChangeDescription(e)}
+                          placeholder="Description" />
+                      </div>
+                      <div className="media-content-edit__submit-embedded-video">
+                        <button onClick={(e) => handleSubmitEmbeddedVideo(e)} >submit</button>
+                      </div>                      
+                    </div>)
+                }
+                default:
+                  return <div></div>
+              }
+            })()
+          }
+        </div>
+        :null
+      }
+    </div>*/
+
+@font-face {
+    font-family: flaticon;
+    src: url('/static/flaticon.woff2');
+}
+
+
+.media-content-edit {
+  padding: 1.5rem;
+}
+
+.media-content-edit__toggle {
+  
+}
+
+
+.media-content-edit__toggle > button {
+  background-color: transparent;
+  border-style: none;
+  /*width: 1.5rem;*/
+  height: 1.5rem;
+  outline: none;
+  font-size: 1.25em;
+  color: var(--first-color);
+}
+
+.media-content-edit__toggle > button::before {
+  font-family: flaticon;
+  content: '\e0ef';
+}
+
+.media-content-edit__toggle > button::after {
+  content: 'add content';
+  margin-left: 0.5em;
+}
+
+
+.media-content-edit__add-media {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.media-content-edit__select-media-type {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.media-content-edit__select-media-type > button {
+  margin: 0.5em;
+  padding: 0.5em;
+  background-color: transparent;
+  border-style: solid;
+  border-radius: 0.75em;
+  border-width: 1px;
+  color: var(--first-color);
+  border-color: var(--first-color);
+  font-size: 1.25em;
+  outline: none;
+}
+
+.media-content-edit__select-media-type > button.selected {
+  background-color: var(--first-color);
+  color: var(--back-color);
+}
+
+.media-content-edit__input-data {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em;
+}
+
+.media-content-edit__input-data > * {
+  margin: 0.5em 0;
+
+}
+
+.media-content-edit__input-data > * > input,
+.media-content-edit__input-data > * > textarea {
+  width: 100%;
+  resize: none;
+  outline: none;
+  border-style: none;
+  background-color: transparent;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.25em;
+  height: 1em;
+  padding: 0.5em 0;
+}
+.media-content-edit__input-data > * > textarea {
+  height: 2em;
+}
+
+.media-content-edit__submit-embedded-video > button {
+  background-color: transparent;
+  border-style: solid;
+  font-size: 1.25em;
+  text-transform: capitalize;
+  margin: 0.5em 0.5em 0.5em 0;
+  border-width: 1px;
+  border-radius: 0.75em;
+  color: var(--first-color);
+  border-color: var(--first-color);
+  padding: 0.5em;
+}
+
+.media-content-edit__add-media-close {
+  display: none;
+}
+
+@media (min-width: 800px) {
+
+  .media-content-edit {
+    display: flex;
+  }
+
+  .media-content-edit__add-media {
+    position: fixed;
+    top: 30vh;
+    left: calc(50vw - 250px);
+    background-color: var(--back-color);
+    width: 500px;
+  }
+
+  .media-content-edit__toggle {
+    order: 2;
+    margin-left: auto;
+  }
+
+
+  .media-content-edit__add-media {
+    order: 1;
+    border-style: solid;
+    padding: 0.5em;
+    border-radius: 1em;
+    border-color: var(--third-color);
+    border-width: 2px;
+  }
+
+  .media-content-edit__add-media-close {
+    display: block;
+    align-self: flex-end;
+    background-color: transparent;
+    border-style: none;
+  }
+  .media-content-edit__add-media-close::before {
+    font-family: flaticon;
+    content: '\e0fd';
+    color: var(--third-color);
+  }
+
+}

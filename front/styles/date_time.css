@@ -1,0 +1,28 @@
+.date-time {
+}
+
+.rrui__tooltip__target {
+
+}
+
+.rrui__tooltip__target > time {
+	padding: 0.5em;
+}
+
+
+.rrui__tooltip {
+  /* Display the tooltip above the content. */
+  margin-top : -0.5em;
+  background-color : var(--first-color);
+  color : var(--fourth-color);
+  padding: 0.25em;
+  border-radius: 0.5em;
+}
+ 
+.rrui__tooltip--after-show {
+  opacity : 0.85;
+}
+ 
+.rrui__tooltip--before-hide {
+  opacity : 0;
+}

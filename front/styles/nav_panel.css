@@ -1,0 +1,26 @@
+
+
+.nav-panel {
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4rem;
+	z-index: 10;
+	align-items: stretch;
+
+	background-color: var(--main-color);
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.nav-panel__user-panel-container {
+	margin-left: auto;
+	display: flex;
+	align-items: stretch;
+	/*align-self: stretch;*/
+}
+.nav-panel__main-menu-container {
+	display: flex;
+	align-items: center;
+}

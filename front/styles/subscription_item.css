@@ -1,0 +1,96 @@
+/*
+    <div
+      onClick={(e) => handleSelect(e)} 
+      className="subscription-item">
+
+      <div className="subscription-item__head">
+        <div className="subscription-item__control">
+          <button 
+            onClick={(e) => handleDelete(e)}>del</button>
+        </div>
+        { name?<div className="subscription-item__name">{ name }</div>:null }
+      </div>
+      <div className="subscription-item__options">
+        { username?<div className="subscription-item__username">{ username }</div>:null }        
+        { tags
+          ?tags.map(tagname => <div className="subscription-item__tagname">{ tagname }</div>)
+          :null }        
+      </div>
+    </div>*/
+
+
+.subscription-item {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-width: 6em;
+  border-style: solid;
+  border-color: var(--third-color);
+  border-width: 2px;
+  margin: 0.25em;
+  cursor: pointer;
+  background-color: var(--third-color);
+  box-shadow: 0 0 4px rgb(0,0,0,0.2);
+}
+
+.subscription-item__head {
+  order: 1;
+  display: flex;
+  align-items: center;
+}
+
+.subscription-item__name {
+  margin: 0.5em;
+  color: var(--main-color);
+}
+
+
+
+.subscription-item__username, 
+.subscription-item__tagname {
+  margin: 0.25em;
+  padding: 0.125em;
+  color: var(--second-color);
+}
+
+.subscription-item__username::before {
+  content: '@';
+}
+
+.subscription-item__tagname::before {
+  content: '#';
+}
+
+.subscription-item__delete {
+  background-color: transparent;
+  border-style: none;
+  outline: none;
+  color: var(--main-color);
+}
+
+.subscription-item__delete::before {
+  display: block;
+  content: '\e0fd';
+  font-family: flaticon;
+  font-size: 0.85rem;
+  padding: 0.5em;
+}
+
+@media (min-width: 800px) {
+
+
+
+}
+
+.subscription-item__delete:hover {
+  color: var(--second-color);
+}
+
+
+.subscription-item__options {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}

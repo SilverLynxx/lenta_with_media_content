@@ -1,0 +1,98 @@
+
+
+
+/*    <div
+      onClick={(e) => handleClick(e)} 
+      className="record-item">
+      <div className="record-item__record-top">
+      <div className="record-item__record-headline">
+          { recordHeadline }
+        </div>
+        <div className="record-item__username">
+          { username }
+        </div>
+        <div className="record-item__post-date">
+          { formattedDate }
+        </div>
+      </div>
+      <div className="record-item__record-text">
+        { recordText }
+      </div>
+    </div>*/
+
+.record-item {
+	display: flex;
+  flex-direction: column;
+	flex-wrap: wrap;
+	cursor: pointer;
+  /*margin: 0.5em 1em;*/
+  background-color: var(--back-color);
+  padding: 0.5em;
+  border-style: solid;
+  border-color: var(--third-color);
+  border-width: 1px;
+}
+
+
+.record-item__record-top {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.record-item__username {
+  margin: 0 0 0 auto;
+  color: var(--second-color);
+  order: 2;
+}
+
+.record-item__username::before {
+  content: '@';
+}
+
+.record-item__post-date {
+  /*min-width: 100%;*/
+  display: flex;
+  justify-content: flex-end;
+  color: var(--first-color);
+  order: 1;
+}
+
+.record-item__post-date::before {
+  content: 'Posted: '
+}
+
+.record-item__record-headline {
+  margin: 1.5em 0.5em 0.5em 0.5em;
+  font-weight: bold;
+  /*max-width: 60%;*/
+  order: 3;
+  min-width: 90%;
+  color: var(--first-color);
+}
+
+.record-item__record-text {
+  margin: 1em 0.5em;
+}
+
+
+
+/*
+
+    <div
+      onClick={(e) => handleClick(e)} 
+      className="record-item">
+      <div className="record-item__record-top">
+      <div className="record-item__record-headline">
+          { recordHeadline }
+        </div>
+        <div className="record-item__username">
+          { username }
+        </div>
+        <div className="record-item__post-date">
+          { formattedDate }
+        </div>
+      </div>
+      <div className="record-item__record-text">
+        { recordText }
+      </div>
+    </div>*/

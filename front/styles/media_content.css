@@ -1,0 +1,128 @@
+/*
+    <div className="media-content">
+	    <div className="media-content__media-root">
+		    <div id="media-root">
+			    <div className="media-root__placeholder"></div>
+		    </div>
+	    </div>
+	    {
+	    	myselfIsOwner
+		    ?<div className="media-content__edit">{mediaContentEdit}</div>
+		    :null
+		  }
+	    <div className="media-content__media-list">
+	      { mediaList }
+	    </div>
+    </div>*/
+
+
+.media-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.media-content__media-root {
+	order: 2;
+}
+
+.media-content__edit{
+	order: 1;
+}
+
+.media-content__media-root {
+    width: 100%;
+    height: calc(100vw * 0.5625);
+}
+
+.media-frame {
+	position: relative;
+    width: 100%;
+    height: calc(100vw * 0.5625);
+	top: 0;
+	left: 0;
+}
+
+
+.media-root__placeholder {
+	font-size: 3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--third-color);
+    /*width: 100vw;*/
+    height: calc(100vw * 0.5625);
+}
+
+.media-root__placeholder::before {
+	content: 'Select video';
+	color: var(--back-color);
+
+}
+
+
+.media-content__media-list {
+	display: flex;
+	flex-direction: column;
+	order: 3;
+}
+
+
+@media (min-width: 800px) {
+
+	.media-content__media-root {
+	    width: 800px;
+	    height: 450px;
+	}	
+	
+	.media-frame {
+	    width: 800px;
+	    height: 450px;
+	}	
+	.media-root__placeholder {
+	    /*width: 800px;*/
+	    height: 450px;
+	}
+}
+
+
+@media (min-width: 1200px) {
+
+  .media-content {
+ /*   display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    margin: 0;*/
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "edit  edit"
+                         "media list";
+  }
+
+  .media-content__edit {
+  	grid-area: edit;
+  }
+
+  .media-content__media-root {
+  	grid-area: media;
+  }
+
+  .media-content__media-list {
+  	/*max-height: 100vh;*/
+  	/*height: calc(100vh - 4rem);*/
+  	height: 450px;
+  	overflow-y: auto;
+  	grid-area: list;
+  	border-style: solid;
+  	border-width: 1px;
+  	border-color: var(--third-color);
+  	background-color: var(--third-color);
+  }
+
+
+}
+@media (min-width: 800px) and (max-width: 1200px){
+	.media-content__media-list {
+		display: grid;
+	    grid-template-columns: 1fr 1fr 1fr;
+	}
+}

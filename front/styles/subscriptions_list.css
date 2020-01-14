@@ -1,0 +1,26 @@
+
+.subscriptions-list__list-container {
+
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	padding: 0.5em;
+}
+
+@media (min-width: 800px) {
+
+	.subscriptions-list {
+		padding: 1em;
+	}
+}
+
+.subscriptions-list::before {
+	display: block;
+	content: 'My subscriptions';
+	padding: 1em 0 0.25em 1rem;
+	color: var(--first-color);
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+

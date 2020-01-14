@@ -1,0 +1,95 @@
+/*    <div 
+      onClick={(e) => handleClick(e)}
+      className="media-content-item">
+     {  myselfIsOwner
+        ?<div className="media-content-item__control">
+          <button
+            onClick={(e) => handleDelete(e)}
+            className="media-content-item__delete">del</button>
+          <button
+            onClick={(e) => handleEdit(e)}
+            className="media-content-item__edit">edit</button>
+        </div>
+        :null
+      }
+      <div className="media-content-item__media-description">{media_description}</div>
+      <div className="media-content-item__username">{username}</div>
+    </div>*/
+
+
+@font-face {
+    font-family: flaticon;
+    src: url('/static/flaticon.woff2');
+}
+
+.media-content-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: var(--back-color);
+  border-style: none;
+  /*border-top-style: solid;*/
+  border-style: solid;
+  /*background-color: var(--back-color);*/
+  border-color: var(--third-color);
+  border-width: 1px;
+}
+
+
+
+.media-content-item__username::before {
+  content: 'Added by @';
+}
+.media-content-item__username {
+  order: 1;
+  color: var(--second-color);
+  padding: 0.75em;
+}
+
+.media-content-item__control > * {
+  padding: 0.5em;
+  margin: 0.5em;
+  background-color: transparent;
+  border-style: none;
+}
+
+
+
+.media-content-item__delete::before {
+  display: block;
+  content: '\e0fd';
+  font-family: flaticon;
+  color: var(--third-color);
+  /*font-size: 0.85rem;*/
+  /*padding: 0.5em;*/
+}
+
+
+.media-content-item__control {
+  order: 2;
+  margin-left: auto;
+}
+
+.media-content-item__media-description {
+  order: 3;
+  min-width: 95%;
+  padding: 1.5em 0.75em;
+}
+
+/*
+@media (max-width: 800px) {
+  .media-content-item + .media-content-item {
+    border-top-style: none;
+
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .media-content-item + .media-content-item {
+    border-top-style: none;
+
+  }
+}
+*/

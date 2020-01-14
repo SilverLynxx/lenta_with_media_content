@@ -1,0 +1,89 @@
+/*
+    <div className="create-record-form">
+      <div className="create-record-form__record-headline">
+        <input 
+          value={recordHeadline}
+          onChange={(e) => handleRecordHeadlineChange(e)}
+          placeholder="Headline"/>
+      </div>
+      <div className="create-record-form__record-tags">
+        <input 
+          value={recordTags}
+          onChange={(e) => handleRecordTagsChange(e)}
+          placeholder="#tags"/>
+      </div>
+      <div className="create-record-form__record-tags-parse">
+        { <span>tagsParse</span> }
+      </div>
+      <div className="create-record-form__record-text">
+        <textarea 
+          value={recordText}
+          onChange={(e) => handleRecordTextChange(e)}
+          placeholder="Description"/>
+      </div>
+      <div className="create-record-form__submit">
+        <button
+          onClick={(e) => handleSubmit(e)} ></button>
+      </div>      
+    </div>*/
+
+
+@font-face {
+    font-family: flaticon;
+    src: url('/static/flaticon.woff2');
+}
+
+.create-record-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.create-record-form > * > textarea,
+.create-record-form > * > input {
+  width: 90%;
+  display: block;
+  resize: none;
+  border-style: none;
+  background-color: transparent;
+  margin: 0.5em;
+  padding: 0.5em;
+  outline: none;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.25em;
+  color: var(--main-color);
+}
+
+.create-record-form__submit > button {
+  margin: 0.25em 0.25em 0.25em auto;
+  display: block;
+  padding: 0.5em;
+  font-size: 1.25em;
+  background-color: transparent;
+  border-style: none;
+  color: var(--first-color);
+}
+
+.create-record-form__submit > button::before {
+  font-family: flaticon;
+  content: '\e053';
+  margin-right: 0.25em;
+}
+.create-record-form__submit > button::after {
+  content: 'create';
+  font-weight: bold;
+}
+
+.create-record-form__record-tags-parse {
+  /*margin: 0.5em;*/
+  font-size: 1.25rem;
+  padding: 0 0.875em;
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--second-color);
+}
+
+.create-record-form__record-tags-parse > span {
+  padding: 0.125em;
+  margin: 0.125em 0;
+}

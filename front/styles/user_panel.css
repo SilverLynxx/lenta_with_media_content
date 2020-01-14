@@ -1,0 +1,168 @@
+@font-face {
+    font-family: flaticon;
+    src: url('/static/flaticon.woff2');
+}
+
+
+.user-panel__login-form.hidden,
+.user-panel__register-form.hidden {
+	display: none;
+}
+
+
+.user-panel__login-form,
+.user-panel__register-form {
+	position: fixed;
+	top: 4em;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0, 0.3);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.user-panel {
+	display: flex;
+  align-items: center;
+  align-self: stretch;
+}
+
+.user-panel__username {
+  align-self: stretch;
+  color: var(--third-color);
+}
+
+.user-panel__username:hover {
+  background-color: var(--third-color);
+  color: var(--main-color);
+}
+
+.user-panel__username > * {
+	/*text-transform: uppercase;*/
+	text-decoration: none;
+	background-color: transparent;
+	font-size: 1.5rem;
+  padding: 0.8em 1em 1.2em;
+  display: block;
+  color: inherit;
+}
+
+
+
+.user-panel__logout,
+.user-panel__login-button,
+.user-panel__register-button {
+  align-self: stretch;
+  display: flex;
+  color: var(--third-color);
+}
+
+.user-panel__logout:hover,
+.user-panel__login-button:hover,
+.user-panel__register-button:hover {
+  background-color: var(--third-color);
+  color: var(--main-color);
+}
+
+
+.user-panel__logout > button,
+.user-panel__login-button > button,
+.user-panel__register-button > button {
+
+  background-color: transparent;
+  border-style: none;
+  font-size: 1.5rem;
+  /*margin-right: 1em;*/
+  display: block;
+  padding: 0.5em 1em;
+  align-self: center;
+  color: inherit;
+  outline: none;
+}
+
+
+.user-panel__logout > button::after,
+.user-panel__login-button > button::after,
+.user-panel__register-button > button::after {
+  font-family: flaticon;
+
+}
+
+.user-panel__logout > button::after {
+  content: '\e116';
+}
+
+.user-panel__login-button > button::after {
+  content: '\e115';
+}
+
+.user-panel__register-button > button::after {
+  content: '\e0ef\e15b';
+}
+
+
+
+
+@media (min-width: 1200px) {
+/*
+  .user-panel__logout > button::before {
+    content: 'Logout';
+    margin-right: 0.5em;
+  }*/
+
+  .user-panel__login-button > button::before {
+    content: 'Login';
+    margin-right: 0.5em;
+  }
+
+  .user-panel__register-button > button::before {
+    /*content: '\e0ef\e15b';*/
+  }
+}
+ /* if (anonymous) {
+    return (
+      <div className="user-panel">
+        <div className="user-panel__login-button">
+          <button
+            onClick={(e) => toggleLoginPanel(e)}>
+            Login
+          </button>
+        </div>
+        <div className="user-panel__register-button">
+          <button
+            onClick={(e) => toggleRegisterPanel(e)}>
+            Register
+          </button>
+        </div>
+        <div 
+          className={`user-panel__login-form ${(loginSwitcher == 'login')?'':'hidden'}`}>
+          <div className="login-form-container">
+            { loginForm }
+          </div>
+        </div>
+        <div 
+          className={`user-panel__register-form ${(loginSwitcher == 'register')?'':'hidden'}`}>
+          <div className="register-form-container">
+            { registerForm }
+          </div>
+        </div>
+      </div>
+    )
+  } else {
+    return (
+      <div className="user-panel">
+        <div className="user-panel__username">
+          <Link to="/profile">{ username }</Link>
+        </div>
+        <div className="user-panel__logout">
+          <button
+            onClick={(e) => handleLogoutClick(e)}>
+            Logout
+          </button>
+        </div>
+      </div>
+    )
+  }*/

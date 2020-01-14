@@ -1,0 +1,62 @@
+@keyframes hiding-one {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes hiding-two {
+	0% {
+		background-color: var(--back-color);
+	}
+
+	100% {
+		background-color: transparent;
+	}
+}
+
+:root {
+    --first-color: #145374; 
+}
+
+.cssload-loader-container {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.cssload-loader-container.hide {
+	animation: hiding-one 0.5s linear;
+}
+.cssload-loader-container.hidden {
+	display: none;
+}
+
+._loading-initial.hide {
+	animation: hiding-two 0.5s linear;
+}
+
+.cssload-loader-container::after {
+	display: block;
+	content: 'Loading, please wait...';
+	font-size: 22px;
+	font-family: Helvetica, Arial, sans-serif;
+	color: var(--first-color);
+	padding: 5.5px;
+}
+
+._loading-initial {
+
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	/*background-color: rgba(128,128,128, 0.3);*/
+	background-color: var(--back-color);
+	display: flex;
+	align-items: center;
+	z-index: 1000;
+}

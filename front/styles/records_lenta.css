@@ -1,0 +1,45 @@
+/*
+    <div className="records-lenta">
+      <div className=" records-lenta__control">
+        <button 
+          onClick={(e) => handleRefresh(e)}
+          className=" records-lenta__refresh">refresh</button>
+      </div>
+      <div className=" records-lenta__records-list">
+        { recordsItemsList }
+      </div>
+    </div>*/
+
+
+@font-face {
+    font-family: flaticon;
+    src: url('/static/flaticon.woff2');
+}
+
+
+.records-lenta {
+  display: flex;
+  flex-direction: column;
+}
+
+.records-lenta__control {
+
+  align-self: flex-end;
+}
+
+.records-lenta__control > button {
+  /*margin-left: auto;*/
+  padding: 1em;
+  background-color: transparent;
+  border-style: none;
+  color: var(--first-color);
+  font-weight: bold;
+  font-size: 1.25em;
+  outline: none;
+}
+
+.records-lenta__control > button::before {
+  font-family: flaticon;
+  content: '\e0fa';
+  margin-right: 0.25em;
+}

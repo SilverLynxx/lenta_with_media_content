@@ -36,7 +36,7 @@ const MediaContent = (props) => {
     const mediaList = recordMedia.map(item => {
       item.recordid = recordid;
       return (
-        <MediaContentItem {...item}/>)
+        <MediaContentItem key={item.mediaid} {...item}/>)
     })
 
     const mediaContentEdit = <MediaContentEdit recordid={recordid}/>

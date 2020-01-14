@@ -25,6 +25,7 @@ import '../styles/media_content_edit.css';
 import '../styles/media_content_item.css';
 import '../styles/date_time.css';
 import '../styles/create_record_form.css';
+import '../styles/login_register_forms.css';
 
 import '../styles/_loading.css';
 import '../styles/css_loader.css';

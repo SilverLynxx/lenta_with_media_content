@@ -20,10 +20,14 @@ const UserPanel = (props) => {
 
   const [loginSwitcher, changeLoginSwitcher] = React.useState('');
 
-  const toggleLoginPanel = () => 
+  const toggleLoginPanel = (e) => {
+    e.preventDefault(); 
     (loginSwitcher != 'login')?changeLoginSwitcher('login'):changeLoginSwitcher('');
-  const toggleRegisterPanel = () => 
+  }
+  const toggleRegisterPanel = (e) => {
+    e.preventDefault(); 
     (loginSwitcher != 'register')?changeLoginSwitcher('register'):changeLoginSwitcher('');
+  }
 
   const handleLogoutClick = () => {
     apiService.logout()

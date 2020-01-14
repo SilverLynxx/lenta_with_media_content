@@ -9,10 +9,20 @@ const RecordDetailsView = (props) => {
     username,
     recordText,
     tags,
-    mediaContent } = props;
+    mediaContent,
+    isOwner,
+    handleDelete } = props;
 
   return (
     <div className="record-details">
+      {
+        isOwner
+        ?<div className="record-details__control">
+          <button
+            onClick={(e) => handleDelete(e)}
+            className="record-details__delete">delete</button>
+        </div>:null
+      }
       <div className="record-details__top">
         { recordHeadline
           ?<div className="record-details__record-headline">{recordHeadline}</div>

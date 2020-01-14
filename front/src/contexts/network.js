@@ -10,6 +10,7 @@ const api_routes = {
   session_info: '/api/session_info',
   create_record: '/api/create_record',
   get_record: '/api/get_record',
+  delete_record: '/api/delete_record',
   get_record_media: '/api/get_record_media',
   set_record_media: '/api/set_record_media',
   delete_record_media: '/api/delete_record_media',
@@ -95,6 +96,16 @@ class ApiService {
     recordid?(data['recordid'] = recordid):null;
     return axios({
       url: this.routes.get_record,
+      method: 'post',
+      data: data
+    })
+  }
+
+  delete_record({recordid, }) {
+    const data = {};
+    recordid?(data['recordid'] = recordid):null;
+    return axios({
+      url: this.routes.delete_record,
       method: 'post',
       data: data
     })

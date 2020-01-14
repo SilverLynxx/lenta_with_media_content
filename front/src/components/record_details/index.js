@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { actions } from '../../actions';
 import { ApiContext } from '../../contexts';
 import RecordDetailsView from './view';
@@ -17,11 +18,26 @@ const RecordDetails = (props) => {
     username,
     recordText,
     tags,
-    fetchRecordDetails } = props;
+    fetchRecordDetails,
+    selfusername } = props;
+
+  const isOwner = (selfusername == username);
 
   const apiService = React.useContext(ApiContext);
 
+  const history = useHistory();
+
   const [loading, changeLoading] = React.useState('loading')
+
+  const handleDelete = (e) => {
+    e.preventDefault(e);
+    confirm('Are you shure?')
+    ?apiService.delete_record({recordid, })
+    .then(r => {
+      history.push('/');})
+    .catch(r => console.log(r))
+    :null;
+  };
 
   if (loading == 'loading') {
     apiService.get_record({recordid,})
@@ -50,7 +66,9 @@ const RecordDetails = (props) => {
         username,
         recordText,
         tags,
-        mediaContent }}/>)
+        mediaContent,
+        isOwner,
+        handleDelete }}/>)
   }
 };
 
@@ -62,6 +80,7 @@ const mapStateToProps = (store) => {
     username: store.records.recordDetails.username,
     recordText: store.records.recordDetails.recordText,
     tags: store.records.recordDetails.tags,
+    selfusername: store.session.username,
   }
 };
 

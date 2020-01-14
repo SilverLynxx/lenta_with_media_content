@@ -1,6 +1,14 @@
 
 /*
     <div className="record-details">
+      {
+        isOwner
+        ?<div className="record-details__control">
+          <button
+            onClick={(e) => handleDelete(e)}
+            className="record-details__delete">delete</button>
+        </div>:null
+      }
       <div className="record-details__top">
         { recordHeadline
           ?<div className="record-details__record-headline">{recordHeadline}</div>
@@ -25,10 +33,37 @@
       </div>
     </div>*/
 
+@font-face {
+    font-family: flaticon;
+    src: url('/static/flaticon.woff2');
+}
 
 .record-details {
 	display: flex;
 	flex-direction: column;
+}
+
+.record-details__control {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+.record-details__delete {
+  background-color: transparent;
+  border-style: none;
+  color: var(--first-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.5em;
+  outline: none;
+}
+
+.record-details__delete::before {
+  content: '\e148';
+  font-family: flaticon;
+  margin-right: 0.25em;
+  font-weight: normal;
 }
 
 .record-details__top {
@@ -76,6 +111,7 @@
   display: flex;
   flex-wrap: wrap;
   padding: 0 1.5rem;
+  justify-content: flex-end;
 }
 
 .record-details__username {

@@ -141,7 +141,7 @@ async def search_records(request):
                     records_table.record_headline.ilike(db.P('$' + str(arg_counter))))
                 args.append(f'%{term.group(1).lower()}%')
 
-
+        q = q.where(records_table.active == True)
         q = q.orderby('post_date', order=db.Order.desc)
         return (q, args)        
 
@@ -190,7 +190,8 @@ async def get_record(request):
     q = db\
         .from_table('records')\
         .select('recordid', 'username', 'post_date', 'record_headline', 'record_text')\
-        .where(db.T('records').recordid == db.P('$1'))
+        .where(db.T('records').recordid == db.P('$1'))\
+        .where(db.T('records').active == True)
 
     result = await db.fetch(q, [recordid, ])
 
@@ -222,6 +223,34 @@ async def get_record(request):
             'tags': tags
         }
     })
+
+
+@authorize
+async def delete_record(request):
+
+    cfg = request.app['cfg']
+    db = request.app[cfg.DB_HANDLER]
+    session = await get_session(request)
+
+    username_self = session.get('user').get('username')
+
+    incoming_data = await request.json()
+    recordid = incoming_data.get('recordid')
+
+    if not isinstance(recordid, str):
+        return json_response({'Incorrect data'}, status=400)
+
+
+    updating_table = db.table('records')
+    q = db.Q\
+        .update(updating_table).set(updating_table.active, False)\
+        .where((updating_table.username == username_self) & (updating_table.recordid == db.P('$1')))
+
+    result = await db.execute(q, [recordid, ])
+
+    return json_response({'info': 'Deleted'})
+
+
 
 @authorize
 async def set_record_media(request):
@@ -256,7 +285,8 @@ async def set_record_media(request):
     q = db\
         .from_table('records')\
         .select('recordid', 'username', 'post_date', 'record_headline', 'record_text')\
-        .where(db.T('records').recordid == db.P('$1'))
+        .where(db.T('records').recordid == db.P('$1'))\
+        .where(db.T('records').active == True)
 
     result = await db.fetch(q, [recordid, ])
 
@@ -307,6 +337,17 @@ async def get_record_media(request):
 
     incoming_data = await request.json()
     recordid = incoming_data.get('recordid')
+
+    q = db\
+        .from_table('records')\
+        .select('recordid', 'username', 'post_date', 'record_headline', 'record_text')\
+        .where(db.T('records').recordid == db.P('$1'))\
+        .where(db.T('records').active == True)
+
+    result = await db.fetch(q, [recordid, ])
+
+    if len(result) != 1:
+        return json_response({'info': 'Not found', }, status=404)
 
 
     media_table = db.T('media')

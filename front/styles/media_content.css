@@ -94,8 +94,8 @@
     margin: 0;*/
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-areas: "edit  edit"
-                         "media list";
+    grid-template-areas: "media list"
+						 "edit  edit";
   }
 
   .media-content__edit {

@@ -47,6 +47,13 @@ const LoginForm = (props) => {
     inputPassword('');
   };
 
+  const handleClose = (e) => {
+    e.preventDefault();
+    changeLoginSwitcher('');
+    inputUsername('');
+    inputPassword('');
+  };
+
   return (
     <LoginFormView {
       ...{
@@ -54,7 +61,8 @@ const LoginForm = (props) => {
         password,
         handleUsernameChange,
         handlePasswordChange,
-        handleSubmit
+        handleSubmit,
+        handleClose
       }
     }/>
   )

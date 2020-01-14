@@ -9,7 +9,8 @@ db_01 = [
 	        username varchar(30) REFERENCES s03.accounts (username) ON DELETE CASCADE,
 	        post_date timestamp DEFAULT CURRENT_TIMESTAMP,
 	        record_headline varchar(100),
-	        record_text varchar(1000)
+	        record_text varchar(1000),
+	        active boolean DEFAULT true
 	    '''
 	},
 	{

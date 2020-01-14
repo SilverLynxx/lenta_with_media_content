@@ -53,13 +53,27 @@ const RegisterForm = (props) => {
         inputEmail('');
         inputPassword('');
         inputPasswordAgain('');
-        changeLoginSwitcher('');
+        changeLoginSwitcher('login');
         history.push('/');
       })
-      .catch(r => console.log(r));
+      .catch(r => {
+        console.log(r.response);
+        if (r.response.status == 409) {
+          alert('User already exists')
+        }
+      });
     } else {
       alert('Password dont matches!')
     }
+  };
+
+  const handleClose = (e) => {
+    e.preventDefault();
+    inputUsername('');
+    inputEmail('');
+    inputPassword('');
+    inputPasswordAgain('');
+    changeLoginSwitcher('');
   };
 
   return (
@@ -73,7 +87,8 @@ const RegisterForm = (props) => {
         handleEmailChange,
         handlePasswordChange,
         handlePasswordAgainChange,
-        handleSubmit
+        handleSubmit,
+        handleClose
       }
     }/>
   )

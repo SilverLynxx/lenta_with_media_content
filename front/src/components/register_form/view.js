@@ -14,10 +14,15 @@ const RegisterFormView = (props) => {
     handleEmailChange,
     handlePasswordChange,
     handlePasswordAgainChange,
-    handleSubmit } = props;
+    handleSubmit,
+    handleClose } = props;
 
   return (
     <div className="register-form">
+      <div className="register-form__close">
+        <button
+          onClick={(e) => handleClose(e)} ></button>
+      </div>      
       <div className="register-form__username">
         <input
           value={username}
@@ -46,7 +51,7 @@ const RegisterFormView = (props) => {
       </div>
       <div className="register-form__submit">
         <button
-          onClick={(e) => handleSubmit(e)} />
+          onClick={(e) => handleSubmit(e)} >register</button>
       </div>      
     </div>
   )

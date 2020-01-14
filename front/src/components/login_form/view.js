@@ -10,10 +10,15 @@ const LoginFormView = (props) => {
     password,
     handleUsernameChange,
     handlePasswordChange,
-    handleSubmit } = props;
+    handleSubmit,
+    handleClose } = props;
 
   return (
     <div className="login-form">
+      <div className="login-form__close">
+        <button
+          onClick={(e) => handleClose(e)} ></button>
+      </div> 
       <div className="login-form__username">
         <input
           value={username}

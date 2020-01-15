@@ -7,8 +7,10 @@ import CreateRecordForm from './components/create_record_form';
 import NavPanel from './components/nav_panel';
 import ProfilePage from './components/profile_page';
 import RecordDetails from './components/record_details';
+import MainPage from './components/main_page';
 
 import '../styles/main.css';
+import '../styles/main_page.css';
 import '../styles/nav_panel.css';
 import '../styles/user_panel.css';
 import '../styles/profile_page.css';
@@ -26,6 +28,7 @@ import '../styles/media_content_item.css';
 import '../styles/date_time.css';
 import '../styles/create_record_form.css';
 import '../styles/login_register_forms.css';
+import '../styles/news_lenta_item.css';
 
 import '../styles/_loading.css';
 import '../styles/css_loader.css';
@@ -41,7 +44,7 @@ const App = (props) => {
           <Switch>
             <Route
               path="/"
-              render={() => <div>MAIN PAGE WITH USER`S SUBSCRIPTIONS</div>}
+              render={() => <MainPage />}
               exact />
             <Route
               path="/profile"

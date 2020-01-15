@@ -25,11 +25,11 @@
   flex-wrap: wrap;
   min-width: 6em;
   border-style: solid;
-  border-color: var(--third-color);
+  border-color: var(--back-color);
   border-width: 2px;
   margin: 0.25em;
   cursor: pointer;
-  background-color: var(--third-color);
+  background-color: var(--back-color);
   box-shadow: 0 0 4px rgb(0,0,0,0.2);
 }
 

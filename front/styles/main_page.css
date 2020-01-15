@@ -1,0 +1,150 @@
+/*     <div className="main-page">
+        <div className="main-page__head">
+          head
+        </div>
+        <div className="main-page__site-news">
+          <div className="main-page__site-news-head">
+            News
+          </div>
+          { newsListItems }
+        </div>
+        {
+          anonymous
+          ?null
+          :<div className="main-page__lenta">
+            <div className="main-page__lenta-head">
+              Lenta
+            </div>
+            { recordsLenta }
+          </div>
+        }
+        {
+          anonymous
+          ?null
+          :<div className="main-page__subscriptions">
+            <div className="main-page__subscriptions-head">
+              Subscriptions
+            </div>
+            { anonymous?null:subscriptinsList }
+          </div>
+        }
+    </div>*/
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--fourth-color);
+}
+
+
+.main-page__head {
+  min-height: 50vh;
+}
+
+.main-page__subscriptions-head,
+.main-page__lenta-head,
+.main-page__site-news-head {
+  background-color: var(--back-color);
+  margin: 0.5rem;
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  font-size: 1.25rem;
+  color: var(--first-color);
+  font-weight: bold;
+  box-shadow: 0 0 4px rgb(0,0,0,0.2);
+}
+
+.main-page__lenta > .records-lenta {
+
+  margin: 0.5em;
+  box-shadow: 0 0 4px rgb(0,0,0,0.2);
+}
+
+.main-page__subscriptions > .subscriptions-list {
+  margin: 0.5em;
+}
+
+@media (min-width: 800px) {
+
+  .main-page {
+    display: grid;
+    grid-template-areas: "head head head"
+                         "news news news"
+                         "lenta lenta subs";
+  }
+
+
+  .main-page__head {
+    grid-area: head;
+
+}
+
+  .main-page__lenta {
+    grid-area: lenta;
+  }
+
+  .main-page__site-news {
+    grid-area: news;
+}
+
+  .main-page__subscriptions {
+    grid-area: subs;
+  }
+
+
+  .main-page__subscriptions.openned {
+    max-height: initial;
+  }
+
+}
+
+
+
+@media (min-width: 1250px) {
+
+  .main-page {
+    display: grid;
+    grid-template-areas: "head head head head"
+                         "news news news subs"
+                         "lenta lenta lenta subs";
+  }
+}
+
+
+/*
+@media (min-width: 1250px) {
+
+  .main-page {
+    display: grid;
+    grid-template-areas: "head head head news"
+                         "subs lenta lenta news";
+  }
+
+
+  .main-page__head {
+    grid-area: head;
+    width: 900px;
+    background-size: 900px;
+}
+
+
+  .main-page__lenta {
+    grid-area: lenta;
+    width: 600px;
+  }
+
+  .main-page__site-news {
+    grid-area: news;
+    width: 300px;
+}
+
+  .main-page__subscriptions {
+    grid-area: subs;
+    max-height: 50vh;
+    overflow-y: hidden;
+  }
+  .main-page__subscriptions.openned {
+    max-height: initial;
+  }
+}*/

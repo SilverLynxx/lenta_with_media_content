@@ -74,9 +74,9 @@
     src: url('/static/flaticon.woff2');
 }
 
-/*.search-record {  
-  min-height: calc(100vh - 4rem);
-}*/
+.search-record {
+  background-color: var(--fourth-color);
+}
 
 .search-query__form {
   display: flex;
@@ -128,7 +128,7 @@
 .search-query__username,
 .search-query__tags {
   align-self: stretch;
-  margin: 0.5em 1em;
+  margin: 0.5em 0.5em;
 }
 
 .search-query__search-terms > *,
@@ -140,6 +140,7 @@
   border-style: none;
   color: var(--main-color);
   outline: none;
+  background-color: transparent;
 }
 
 .search-query__control{
@@ -189,7 +190,7 @@
 .search-query__make-subscription {
   display: flex;
   align-self: stretch;
-  margin: 0.5em 1em;
+  margin: 0.5em;
   font-size: 1.35rem;
 }
 
@@ -200,6 +201,7 @@
   border-style: none;
   color: var(--main-color);
   outline: none;
+  background-color: transparent;
 }
 
 .search-query__subscribe{
@@ -232,7 +234,7 @@
 }
 
 
-
+/*
 
 .search-record__record-list::before {
   display: block;
@@ -241,17 +243,14 @@
   color: var(--first-color);
   font-size: 1.5rem;
   font-weight: bold;
-}
+}*/
 
 
 
 @media (min-width: 800px) {
 
   .search-query {
- /*   display: flex;
-    align-items: flex-start;
-    flex-direction: row;
-    margin: 0;*/
+
     display: grid;
     grid-template-columns: 4fr 5fr;
     padding: 2em 1em;
@@ -264,13 +263,6 @@
     /*flex-grow: 1;*/
   }
 
-
-  .search-query__form::before {
-
-    /*min-width: 700px;*/
-  }
-
-
   .search-query__form > * {
   }
 
@@ -281,17 +273,6 @@
   }
 
   .search-query__toggle {
-   /* font-size: 1.35rem;
-    position: static;
-    width: initial;
-    padding: 0 1em;
-    margin: 0.5em 1em;
-    order: 1;
-    background-color: var(--back-color);
-    border-style: solid;
-    border-width: 2px;
-    border-color: var(--third-color);
-    color: var(--first-color);*/
     display: none;
   }
 
@@ -300,16 +281,6 @@
     order: 2;
   }
 
-
- /* .search-query__toggle.search::after {
-    margin-left: 0.5em;
-    content: ' Search';
-  }
-
-  .search-query__toggle.subscriptions::after {
-    margin-left: 0.5em;
-    content: ' Subscriptions';
-  }*/
   .search-query__control {
     position: static;
     margin: 1em;
@@ -336,7 +307,7 @@
 }
 
 
-@media (min-width: 1200px) {
+@media (min-width: 1250px) {
 
   .search-record {
     display: grid;
@@ -351,19 +322,13 @@
   }
 
   .search-query {
- /*   display: flex;
-    align-items: flex-start;
-    flex-direction: row;
-    margin: 0;*/
-    /*display: grid;*/
-    /*grid-template-columns: 2fr 3fr;*/
     padding: 2em 1em;
     display: flex;
     flex-direction: column;
     grid-area: query;
   }
 
-
+/*
 
   .search-record__record-list::before {
     display: block;
@@ -373,7 +338,7 @@
     font-size: 1.5rem;
     font-weight: bold;
   }
-
+*/
 
 }
 

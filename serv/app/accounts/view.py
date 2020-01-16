@@ -46,7 +46,10 @@ async def register(request):
     if valid_user_data:
 
         try:
-            result = await db.insert_to_table('accounts', valid_user_data)
+            await db.insert_to_table('accounts', valid_user_data)
+            await db.insert_to_table(
+                'permission_groups_accounts', 
+                {'username': valid_user_data['username'], 'groupname': 'user'})
             return json_response({'info': 'Now you are registered here'})
         except UniqueViolationError:
             return json_response({'info': 'Already exists'}, status=409) 
@@ -86,9 +89,22 @@ async def login(request):
             'email': result[0].get('email')
         }
 
+
+        q = db\
+            .from_table('permission_groups_accounts')\
+            .select('username', 'groupname')\
+            .where( db.T('permission_groups_accounts').username == db.P('$1') )\
+            .where( db.T('permission_groups_accounts').active == True )
+        args = [user_data['username'], ]
+        result = await db.fetch(q, args)
+
+        groupname = result[-1].get('groupname')
+
         session = await new_session(request)
         session['anonymous'] = False
         session['user'] = user_data
+        session['group'] = groupname
+        print(groupname)
 
         return json_response({
             'info': 'You are logged in', 

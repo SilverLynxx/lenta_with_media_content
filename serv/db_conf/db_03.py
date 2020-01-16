@@ -9,6 +9,7 @@ db_03 = [
             media_data varchar(500),
             username varchar(30) REFERENCES s03.accounts (username) ON DELETE CASCADE,
             media_description varchar(500),
+            date timestamp DEFAULT CURRENT_TIMESTAMP,
             active boolean DEFAULT true
         '''
     },

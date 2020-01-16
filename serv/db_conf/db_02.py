@@ -7,6 +7,7 @@ db_02 = [
             subgroupid varchar(45) PRIMARY KEY,
             username varchar(30) REFERENCES s03.accounts (username) ON DELETE CASCADE,
             subgroupname varchar(50),
+            date timestamp DEFAULT CURRENT_TIMESTAMP,
             active boolean DEFAULT true
         '''
     },

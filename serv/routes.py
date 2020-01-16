@@ -1,5 +1,6 @@
 from aiohttp import web
 from app.api_routes import api_routes
+from admin.admin_routes import admin_routes
 import os
 
 
@@ -36,6 +37,7 @@ async def main_page(request):
 def make_routes_table():
     routes = []
     routes.extend(api_routes)
+    routes.extend(admin_routes)
     routes.extend(
         [
             web.static('/static', STATIC_FOLDER),

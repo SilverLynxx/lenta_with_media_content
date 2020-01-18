@@ -69,6 +69,7 @@ const App = (props) => {
               path="/create_record_form"
               render={() => <CreateRecordForm />}
               exact />
+            <Route render={() => <div>404 Page not found</div>} />
           </Switch>
         </div>
       </div>

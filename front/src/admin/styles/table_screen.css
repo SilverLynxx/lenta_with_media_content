@@ -1,0 +1,108 @@
+
+button {
+    padding: 0.25em;
+    margin: 0.25em;
+    font-size: 1.125rem;
+    background-color: white;
+    color: grey;
+    border-style: solid;
+    border-color: grey;
+    outline: none;
+
+}
+
+button.selected {
+  background-color: grey;
+  color: white;
+  border-style: solid;
+  border-color: white;
+  font-weight: bold;
+}
+
+.table-columns-options {
+  background-color: grey;
+  color: white;
+  font-size: 1.125rem;
+}
+.table-columns-options > * > * {
+  display: inline-block;
+  padding: 0.25em;
+  margin: 0.25em;
+}
+
+.table-columns-options__conditions-item {
+  display: block;
+  border-style: solid;
+  border-color: white;
+}
+
+.edit-table-cell__condition {
+  display: block;
+  border-style: solid;
+  border-color: white;
+}
+
+
+@media (min-width: 800px) {
+
+  .table-screen {
+    display: grid;
+    grid-template-areas: "options options none none"
+                         "tables columnsList columnsList columnsList"
+  }
+
+  .tables-list {
+    grid-area: tables;
+    max-width: 25vw;
+    overflow-x: auto;
+  }
+
+  .tables-list > * {
+    padding: 0.25em;
+    margin: 0.25em;
+    font-size: 1.125rem;
+    background-color: grey;
+    color: white;
+
+  }
+
+  .table-columns-list {
+    grid-area: columnsList;
+    display: flex;
+    max-width: 75vw;
+    overflow-x: auto;
+    margin: 0.25em;
+  }
+
+  .table-columns-list > *{
+    /*margin: 0 0.25em;*/
+   /* border-style: solid;
+    border-width: 1px;
+    border-color: grey*/
+  }
+
+  .table-columns-options {
+    grid-area: options;
+    max-width: 50vw;
+  }
+
+  .table-column__column-name {
+    background-color: grey;
+    color: white;
+    padding: 0.5em;
+    font-size: 1.25em;
+  }
+
+  .table-column__item {
+    max-width: 25em;
+    overflow-y: hidden;
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+    height: 3em;
+    overflow-y: hidden;
+    font-size: 1.125rem;
+    padding: 0.25em;
+    cursor: pointer;
+  }
+}

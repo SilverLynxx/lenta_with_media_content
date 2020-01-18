@@ -162,9 +162,11 @@ async def search_records(request):
     rec_username = incoming_data.get('username')
     rec_tags = incoming_data.get('tags')
     search_terms = incoming_data.get('search_terms')
+    print(rec_username, rec_tags, search_terms)
 
     try:
         q, args = db_request_generate(rec_username, rec_tags, search_terms)
+        print(q, args)
     except IncorrectDataException:
         return json_response({'info': 'Incorrect data'}, status=400)
 

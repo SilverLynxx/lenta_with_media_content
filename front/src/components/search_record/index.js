@@ -44,9 +44,9 @@ const SearchRecord = (props) => {
     e.preventDefault();
     searchRecordsInputSearchTerms(e.target.value);
 
-    console.log(e.target.value.match(/\W?(\w{3,}|\d+)\W?/), e.target.value);
+    console.log(e.target.value.match(/\W?([\wа-яА-ЯёЁ]{3,}|\d+)\W?/), e.target.value);
 
-    if (e.target.value.match(/\W?(\w{3,}|\d+)\W?/) || tags || username) {
+    if (e.target.value.match(/\W?([\wа-яА-ЯёЁ]{3,}|\d+)\W?/) || tags || username) {
       searchService.getRecordsList(
         { username, 
           search_terms: e.target.value, tags: tags.match(/[a-zA-Z0-9_]{3,100}/g)}, fetchRecordsList)

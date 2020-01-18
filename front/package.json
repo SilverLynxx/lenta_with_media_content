@@ -8,6 +8,7 @@
     "build": "webpack --mode development ./src/index.js -o ../static/main.js -w",
     "buildloading": "webpack --mode development ./src/loading.js -o ../static/loading.js -w",
     "buildadmin": "webpack --mode development ./src/main_admin.js -o ../static/main_admin.js -w",
+    "buildadminprod": "webpack --mode production ./src/main_admin.js -o ../static/main_admin.js -w",
     "buildprod": "webpack --mode production ./src/index.js -o ../static/main.js",
     "buildloadingprod": "webpack --mode production ./src/loading.js -o ../static/loading.js"
   },
